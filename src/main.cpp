@@ -16,6 +16,11 @@ int main(int argc, char *argv[])
   HF::File file(filename, HF::File::ReadOnly);
 
   auto dataset = file.getDataSet("dens");
-  std::cout << dataset.getSpace().getDimensions() << std::endl;
+  auto dims = dataset.getSpace().getDimensions();
+  std::cout << "(";
+  for (auto& d : dims) {
+    std::cout << d << ", ";
+  }
+  std::cout << ")" << std::endl;
   return 0;
 }
