@@ -11,7 +11,7 @@
 namespace HF = HighFive;
 using namespace boost::gil;
 
-typedef boost::multi_array<double, 3> array_t;
+typedef boost::multi_array<float, 3> array_t;
 typedef array_t::index index_t;
 
 int main(int argc, char *argv[])
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
   // Read dataset for electron density
   auto dataset = file.getDataSet("dens");
   auto dims = dataset.getSpace().getDimensions();
-  array_t data(boost::extents[dims[0], dims[1], dims[2]]);
+  array_t data(boost::extents[dims[0]][dims[1]][dims[2]]);
   dataset.read(data);
 
   std::cout << "(";

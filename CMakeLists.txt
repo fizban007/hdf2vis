@@ -4,6 +4,7 @@ project (hdf2vis)
 message ("CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}")
 
 option(build_tests "Build the test suite." OFF)
+add_definitions(-DH5_USE_BOOST)
 
 # Set CXX flags
 # set(CMAKE_CXX_COMPILER "/opt/intel/bin/icpc")
