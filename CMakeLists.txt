@@ -20,11 +20,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(HDF5_USE_STATIC_LIBRARIES)
 
 find_package(HDF5 REQUIRED COMPONENTS C CXX)
-find_package(Boost COMPONENTS system filesystem gil REQUIRED)
+find_package(Boost COMPONENTS system filesystem REQUIRED)
 
 set(FMT_INCLUDE_DIR deps/fmt)
 set(HIGHFIVE_INCLUDE_DIR deps/highfive/include)
-include_directories(${FMT_INCLUDE_DIR} ${HIGHFIVE_INCLUDE_DIR} include)
+include_directories(${FMT_INCLUDE_DIR} ${HIGHFIVE_INCLUDE_DIR} ${Boost_iNCLUDE_DIR} include)
 
 add_subdirectory(deps/fmt)
 add_subdirectory(src)
