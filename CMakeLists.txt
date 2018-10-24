@@ -22,10 +22,26 @@ set(HDF5_USE_STATIC_LIBRARIES)
 
 find_package(HDF5 REQUIRED COMPONENTS C CXX)
 find_package(Boost COMPONENTS system filesystem REQUIRED)
+find_package(PNG REQUIRED)
+# # search for pkg-config
+# include (FindPkgConfig)
+# if (NOT PKG_CONFIG_FOUND)
+#     message (FATAL_ERROR "pkg-config not found")
+# endif ()
+
+# # check for libpng
+# pkg_check_modules (LIBPNG libpng12 REQUIRED)
+# if (NOT LIBPNG_FOUND)
+#     message(FATAL_ERROR "You don't seem to have libpng16 development libraries installed")
+# else ()
+#     include_directories (${LIBPNG_INCLUDE_DIRS})
+#     link_directories (${LIBPNG_LIBRARY_DIRS})
+#     link_libraries (${LIBPNG_LIBRARIES})
+# endif ()
 
 set(FMT_INCLUDE_DIR deps/fmt)
 set(HIGHFIVE_INCLUDE_DIR deps/highfive/include)
-include_directories(${FMT_INCLUDE_DIR} ${HIGHFIVE_INCLUDE_DIR} ${Boost_iNCLUDE_DIR} include)
+include_directories(${FMT_INCLUDE_DIR} ${HIGHFIVE_INCLUDE_DIR} ${Boost_INCLUDE_DIR} ${PNG_INCLUDE_DIR} include)
 
 add_subdirectory(deps/fmt)
 add_subdirectory(src)
